@@ -207,3 +207,100 @@ window.addEventListener("scroll",()=>{
   }
 
 })
+
+// POPUPS
+
+const bookingPopup =
+document.querySelector(".booking-popup")
+
+const galleryPopup =
+document.querySelector(".gallery-popup")
+
+
+// BUTTONS
+
+document.getElementById("bookBtn")
+.addEventListener("click",()=>{
+
+  bookingPopup.classList.add("active")
+
+})
+
+document.getElementById("galleryBtn")
+.addEventListener("click",()=>{
+
+  galleryPopup.classList.add("active")
+
+})
+
+
+// CLOSE
+
+document.querySelector(".close-btn")
+.addEventListener("click",()=>{
+
+  bookingPopup.classList.remove("active")
+
+})
+
+document.querySelector(".close-gallery")
+.addEventListener("click",()=>{
+
+  galleryPopup.classList.remove("active")
+
+})
+
+
+// WHATSAPP BOOKING
+
+document.getElementById("whatsappBtn")
+.addEventListener("click",()=>{
+
+  const name =
+  document.getElementById("name").value
+
+  const phone =
+  document.getElementById("phone").value
+
+  const guests =
+  document.getElementById("guests").value
+
+  const date =
+  document.getElementById("date").value
+
+  const time =
+  document.getElementById("time").value
+
+
+  const message =
+`☕ BREW HAVEN TABLE BOOKING
+
+Name: ${name}
+Phone: ${phone}
+Guests: ${guests}
+Date: ${date}
+Time: ${time}`
+
+
+  const ownerNumber =
+  "918109944185"
+
+
+  const url =
+`https://wa.me/${ownerNumber}?text=${encodeURIComponent(message)}`
+
+
+  window.open(url,"_blank")
+
+})
+
+
+// GSAP POPUP ANIMATION
+
+gsap.from(".popup-content",{
+
+  scale:0.8,
+  opacity:0,
+  duration:0.5
+
+})
