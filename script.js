@@ -182,9 +182,9 @@ if(window.innerWidth > 900){
 
       trigger:".cards",
       start:"top top",
-      end:"+=1000",
+      end:"+=300",
       scrub:true,
-      pin:true
+      
 
     }
 
