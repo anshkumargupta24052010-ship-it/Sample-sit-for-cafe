@@ -345,3 +345,140 @@ nav.active{
 .card:hover img{
   transform:scale(1.08);
 }
+/* PARALLAX BUTTONS */
+
+.parallax-content{
+  text-align:center;
+}
+
+.parallax-buttons{
+  margin-top:30px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.parallax-buttons button{
+  padding:16px 35px;
+  border:none;
+  border-radius:50px;
+  background:#c08b5c;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  transition:0.4s;
+  font-weight:600;
+}
+
+.parallax-buttons button:hover{
+  transform:scale(1.08);
+}
+
+
+/* POPUP */
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.92);
+  backdrop-filter:blur(12px);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  opacity:0;
+  pointer-events:none;
+
+  transition:0.5s;
+
+  z-index:999999;
+}
+
+.popup.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.popup-content{
+  width:90%;
+  max-width:600px;
+  background:#111;
+  padding:50px;
+  border-radius:25px;
+  position:relative;
+}
+
+.popup-content h2{
+  margin-bottom:30px;
+  font-size:2rem;
+}
+
+.close-btn,
+.close-gallery{
+  position:absolute;
+  top:20px;
+  left:20px;
+  cursor:pointer;
+  color:#c08b5c;
+  font-weight:600;
+}
+
+.popup-content input{
+  width:100%;
+  padding:18px;
+  margin-bottom:20px;
+  border:none;
+  background:#1c1c1c;
+  color:white;
+  border-radius:12px;
+  font-size:1rem;
+}
+
+#whatsappBtn{
+  width:100%;
+  padding:18px;
+  border:none;
+  background:#25D366;
+  color:white;
+  border-radius:50px;
+  font-size:1rem;
+  cursor:pointer;
+  font-weight:600;
+}
+
+
+/* GALLERY */
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:30px;
+}
+
+.gallery-grid img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
+  transition:0.5s;
+}
+
+.gallery-grid img:hover{
+  transform:scale(1.05);
+}
+
+
+@media(max-width:700px){
+
+  .popup-content{
+    padding:30px;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+}
