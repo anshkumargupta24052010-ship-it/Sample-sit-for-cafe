@@ -14,12 +14,20 @@ requestAnimationFrame(raf)
 
 const cursor = document.querySelector(".cursor")
 
-document.addEventListener("mousemove",(e)=>{
+if(window.innerWidth > 768){
 
-  cursor.style.left = e.clientX + "px"
-  cursor.style.top = e.clientY + "px"
+  document.addEventListener("mousemove",(e)=>{
 
-})
+    cursor.style.left = e.clientX + "px"
+    cursor.style.top = e.clientY + "px"
+
+  })
+
+}else{
+
+  cursor.style.display = "none"
+
+}
 
 
 // LOADER ANIMATION
@@ -224,12 +232,34 @@ document.getElementById("bookBtn")
 
   bookingPopup.classList.add("active")
 
+  gsap.fromTo(".booking-popup .popup-content",
+  {
+    scale:0.8,
+    opacity:0
+  },
+  {
+    scale:1,
+    opacity:1,
+    duration:0.4
+  })
+
 })
 
 document.getElementById("galleryBtn")
 .addEventListener("click",()=>{
 
   galleryPopup.classList.add("active")
+
+  gsap.fromTo(".gallery-popup .popup-content",
+  {
+    scale:0.8,
+    opacity:0
+  },
+  {
+    scale:1,
+    opacity:1,
+    duration:0.4
+  })
 
 })
 
@@ -295,12 +325,9 @@ Time: ${time}`
 })
 
 
-// GSAP POPUP ANIMATION
 
-gsap.from(".popup-content",{
+if(window.innerWidth < 768){
 
-  scale:0.8,
-  opacity:0,
-  duration:0.5
+  document.querySelector(".cursor").style.display = "none"
 
-})
+}
