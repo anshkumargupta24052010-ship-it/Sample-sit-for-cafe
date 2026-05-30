@@ -1,31 +1,38 @@
 // LENIS SMOOTH SCROLL
 
-const lenis = new Lenis()
+gsap.registerPlugin(ScrollTrigger);
 
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
+const lenis = new Lenis();
 
-requestAnimationFrame(raf)
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
 
 
 // CUSTOM CURSOR
 
-const cursor = document.querySelector(".cursor")
+const cursor = document.querySelector(".cursor");
 
-if(window.innerWidth > 768){
+if(cursor){
 
-  document.addEventListener("mousemove",(e)=>{
+  if(window.innerWidth > 768){
 
-    cursor.style.left = e.clientX + "px"
-    cursor.style.top = e.clientY + "px"
+    document.addEventListener("mousemove",(e)=>{
 
-  })
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
 
-}else{
+    });
 
-  cursor.style.display = "none"
+  }else{
+
+    cursor.style.display = "none";
+
+  }
 
 }
 
@@ -112,19 +119,6 @@ gsap.from(".about-right",{
 
 // CARDS ANIMATION
 
-gsap.from(".card",{
-
-  scrollTrigger:{
-    trigger:".cards",
-    start:"top 70%"
-  },
-
-  y:100,
-  opacity:0,
-  duration:1,
-  stagger:0.2
-
-})
 
 
 // PARALLAX TEXT
@@ -326,8 +320,8 @@ Time: ${time}`
 
 
 
-if(window.innerWidth < 768){
+const mobileCursor = document.querySelector(".cursor");
 
-  document.querySelector(".cursor").style.display = "none"
-
+if(mobileCursor && window.innerWidth < 768){
+  mobileCursor.style.display = "none";
 }
